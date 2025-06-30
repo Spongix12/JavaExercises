@@ -1,5 +1,6 @@
 package Lezione7.ES2;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class Browser {
@@ -12,19 +13,25 @@ public class Browser {
         System.out.println("Hai visitato : " + url);
     }
 
-    public void goBack(){
-        if(cron.size() > 1){
-            String paginaCorr = cron.pop(); //rimuove pagina attuale
-            String paginaPre = cron.peek(); //mostra la precedente
-            System.out.println("Tornato a : " + paginaPre);
-        }else if(cron.size() == 1){
-            cron.pop();
-            System.out.println("Tutte le pagine sono state chiuse");
-        }else{
-            System.out.println("Nessuna pagina da cui tornare");
-        }
 
+    public void goBack() {
+        try {
+            if (cron.size() > 1) {
+                String paginaCorr = cron.pop();
+                String paginaPre = cron.peek();
+                System.out.println("Tornato a : " + paginaPre);
+                System.out.println("Pagina eliminata : " + paginaCorr);
+            } else if (cron.size() == 1) {
+                cron.pop();
+                System.out.println("Tutte le pagine sono state chiuse");
+            } else {
+                System.out.println("Nessuna pagina da cui tornare");
+            }
+        } catch (EmptyStackException e) {
+            System.out.println("Errore: la pila è vuota. Nessuna operazione possibile.");
+        }
     }
+
 
 
     public void printHistory() {
