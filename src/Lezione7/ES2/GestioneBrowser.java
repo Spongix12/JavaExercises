@@ -8,6 +8,10 @@ public class GestioneBrowser {
         b.visitPage("Facile.it");
         b.visitPage("SteveJobs.academy");
 
+
+        System.out.println("\nCronologia iniziale");
+
+        b.printHistory();
         System.out.println("\n");
 
         //indietro prima volta
@@ -17,6 +21,11 @@ public class GestioneBrowser {
         //indietro seconda volta
         System.out.println("\nTorna ancora indietro.");
         b.goBack();
+
+        //indietro seconda volta
+        System.out.println("\nTorna ancora indietro.");
+        b.goBack();
+
 
         System.out.println("\n");
 
